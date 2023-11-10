@@ -1,5 +1,10 @@
-// Get the element with the ID "myDiv"
-var myDiv = document.getElementById("myDiv");
+document.addEventListener("DOMContentLoaded", () => {
+    const myDiv = document.querySelector("#my-div");
+    myDiv.style.cursor = "pointer";
+  
+    myDiv.addEventListener("click", () => {
+      myDiv.style.backgroundColor = "green";
 
-// Change the background color of the element
-myDiv.style.backgroundColor = "red";
+    });
+  });
+  

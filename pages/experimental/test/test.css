@@ -1,9 +1,14 @@
 body {
     font-family: sans-serif;
-    text-align: center;
   }
   
   h1 {
-    color: rgb(0, 255, 72);
+    color: blue;
+  }
+  
+  #my-div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
   }
   
