@@ -1,0 +1,14 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  h1 {
+    color: blue;
+  }
+  
+  #my-div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+  
