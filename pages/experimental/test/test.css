@@ -1,14 +1,28 @@
-body {
-    font-family: sans-serif;
-  }
-  
-  h1 {
-    color: blue;
-  }
-  
+
   #my-div {
     width: 100px;
     height: 100px;
     background-color: red;
   }
   
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 50px;
+  }
+
+  #my-div {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
