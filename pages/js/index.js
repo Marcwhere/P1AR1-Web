@@ -59,7 +59,7 @@ const createStar = position => {
   removeElement(star, config.starAnimationDuration);
 }
 
-const createGlowPoint = position => {
+/*const createGlowPoint = position => {
   const glow = document.createElement("div");
   
   glow.className = "glow-point";
@@ -70,7 +70,7 @@ const createGlowPoint = position => {
   appendElement(glow)
   
   removeElement(glow, config.glowDuration);
-}
+} */
 
 const determinePointQuantity = distance => Math.max(
   Math.floor(distance / config.maximumGlowPointSpacing),
