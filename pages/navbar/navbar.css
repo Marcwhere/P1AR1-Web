@@ -1,0 +1,17 @@
+.navbar a {
+    color: rgb(255, 255, 255); 
+}
+.navbar {
+    background-color: rgb(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0, 0.75);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3%;
+    padding: 2%;
+    gap: 8%;
+    text-shadow: rgb(255, 255, 255) 0px 0px 20px;
+    
+    
+}

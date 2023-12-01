@@ -8,13 +8,18 @@ const last = {
   mousePosition: originPosition
 }
 
+
+
+
+
+
 const config = {
   starAnimationDuration: 1500,
   minimumTimeBetweenStars: 200,
   minimumDistanceBetweenStars: 70,
   glowDuration: 75,
   maximumGlowPointSpacing: 10,
-  colors: ["48, 99, 142", "252 254 255", "139, 190, 232"], /*Colors of gamecontroler
+  colors: ["48, 99, 142", "252, 254, 255", "139, 190, 232"], /*Colors of gamecontroler
   https://coolors.co/070707-edae49-d1495b-00798c-30638e*/
   sizes: ["1.4rem", "1rem", "0.6rem"],
   animations: ["fall-1", "fall-2", "fall-3"]
@@ -62,7 +67,7 @@ const createStar = position => {
 
 /*const createGlowPoint = position => {
   const glow = document.createElement("div");
-  
+
   glow.className = "glow-point";
   
   glow.style.left = px(position.x);
@@ -78,7 +83,7 @@ const determinePointQuantity = distance => Math.max(
   1
 );
 
-const createGlow = (last, current) => {
+/*const createGlow = (last, current) => {
   const distance = calcDistance(last, current),
         quantity = determinePointQuantity(distance);
   
@@ -92,7 +97,7 @@ const createGlow = (last, current) => {
     createGlowPoint({ x, y });
   });
 }
-
+*/
 const updateLastStar = position => {
   last.starTimestamp = new Date().getTime();
 
@@ -111,6 +116,7 @@ window.onpointermove = e => {
   const mousePosition = { x: e.clientX, y: e.clientY }
   
   adjustLastMousePosition(mousePosition);
+ 
   
   const now = new Date().getTime(),
         hasMovedFarEnough = calcDistance(last.starPosition, mousePosition) >= config.minimumDistanceBetweenStars,
@@ -121,10 +127,70 @@ window.onpointermove = e => {
     
     updateLastStar(mousePosition);
   }
+
   
-  createGlow(last.mousePosition, mousePosition);
+  
+  /*createGlow(last.mousePosition, mousePosition);*/
   
   updateLastMousePosition(mousePosition);
 }
 
-document.body.onmouseleave = () => updateLastMousePosition(originPosition);
+document.addEventListener('DOMContentLoaded', function() {
+  // ... your existing code ...
+
+  document.body.onmouseleave = () => updateLastMousePosition(originPosition);
+});
+
+
+/*
+document.addEventListener('DOMContentLoaded', function() {
+  // Select all the links in the navbar
+  var links = document.querySelectorAll('.navbar a');
+
+  // Add a tabindex attribute to each link
+  for (var i = 0; i < links.length; i++) {
+    links[i].setAttribute('tabindex', i + 1);
+  }
+
+  // Set focus on the first link
+  links[0].focus();
+
+  // Listen for keydown events
+  window.addEventListener('keydown', function(e) {
+    // Get the currently focused element
+    var focused = document.activeElement;
+
+    // If the left arrow key is pressed
+    if (e.key === 'ArrowLeft') {
+      for (var i = 0; i < links.length; i++) {
+        if (links[i] === focused && i > 0) {
+          links[i - 1].focus();
+          break;
+        }
+      }
+    }
+    // If the right arrow key is pressed
+    else if (e.key === 'ArrowRight') {
+      for (var i = 0; i < links.length; i++) {
+        if (links[i] === focused && i < links.length - 1) {
+          links[i + 1].focus();
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
+*/
+
+
+
+window.onload = function() {
+  fetch('pages/navbar/navbar.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('navbar').innerHTML = data;
+      });
+};
