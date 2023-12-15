@@ -11,8 +11,8 @@ body {
 
 
 .center {
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -20,6 +20,7 @@ body {
     text-shadow: rgb(255, 255, 255)  0px 0px 20px;
     font-size: 200%;
     font-family: 'Roboto', sans-serif, 'bold';
+    padding: 5%;
 }
 
 
