@@ -1,3 +1,4 @@
+import 'font-awesome/css/font-awesome.min.css';
 let start = new Date().getTime();
 
 const originPosition = { x: 0, y: 0 };
@@ -96,46 +97,19 @@ const createStar = position => {
   star.style.color = `rgb(${color})`;
   star.style.textShadow = `0px 0px 1.5rem rgb(${color} / 0.5)`;
   star.style.animationName = config.animations[count++ % 3];
-  star.style.starAnimationDuration = ms(config.starAnimationDuration);
+  star.style.animationDuration = ms(config.starAnimationDuration);
   
   appendElement(star);
 
   removeElement(star, config.starAnimationDuration);
 }
 
-/*const createGlowPoint = position => {
-  const glow = document.createElement("div");
-
-  glow.className = "glow-point";
-  
-  glow.style.left = px(position.x);
-  glow.style.top = px(position.y);
-  
-  appendElement(glow)
-  
-  removeElement(glow, config.glowDuration);
-} */
 
 const determinePointQuantity = distance => Math.max(
   Math.floor(distance / config.maximumGlowPointSpacing),
   1
 );
 
-/*const createGlow = (last, current) => {
-  const distance = calcDistance(last, current),
-        quantity = determinePointQuantity(distance);
-  
-  const dx = (current.x - last.x) / quantity,
-        dy = (current.y - last.y) / quantity;
-  
-  Array.from(Array(quantity)).forEach((_, index) => { 
-    const x = last.x + dx * index, 
-          y = last.y + dy * index;
-    
-    createGlowPoint({ x, y });
-  });
-}
-*/
 const updateLastStar = position => {
   last.starTimestamp = new Date().getTime();
 
@@ -166,62 +140,14 @@ window.onpointermove = e => {
     updateLastStar(mousePosition);
   }
 
-  
-  
-  /*createGlow(last.mousePosition, mousePosition);*/
-  
+    
   updateLastMousePosition(mousePosition);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  // ... your existing code ...
 
   document.body.onmouseleave = () => updateLastMousePosition(originPosition);
 });
-
-
-/*
-document.addEventListener('DOMContentLoaded', function() {
-  // Select all the links in the navbar
-  var links = document.querySelectorAll('.navbar a');
-
-  // Add a tabindex attribute to each link
-  for (var i = 0; i < links.length; i++) {
-    links[i].setAttribute('tabindex', i + 1);
-  }
-
-  // Set focus on the first link
-  links[0].focus();
-
-  // Listen for keydown events
-  window.addEventListener('keydown', function(e) {
-    // Get the currently focused element
-    var focused = document.activeElement;
-
-    // If the left arrow key is pressed
-    if (e.key === 'ArrowLeft') {
-      for (var i = 0; i < links.length; i++) {
-        if (links[i] === focused && i > 0) {
-          links[i - 1].focus();
-          break;
-        }
-      }
-    }
-    // If the right arrow key is pressed
-    else if (e.key === 'ArrowRight') {
-      for (var i = 0; i < links.length; i++) {
-        if (links[i] === focused && i < links.length - 1) {
-          links[i + 1].focus();
-          break;
-        }
-      }
-    }
-  });
-});
-
-
-
-*/
 
 
 
