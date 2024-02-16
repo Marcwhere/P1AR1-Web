@@ -5,8 +5,8 @@
 body {
     background: rgb(0,36,41);
     background: linear-gradient(24deg, rgba(0,36,41,1) 0%, rgba(163,47,47,1) 35%, rgba(237,174,73,1) 100%);   
-    height: 100vh;
-    overflow: hidden;
+    height: 2000px;
+    
 }
 
 
@@ -68,7 +68,15 @@ body {
     
 }
 
-    
+body {
+    height: 2000px; /* This will make the page scrollable */
+}
+
+p {
+    position: relative; /* This will allow the z-index property to work */
+    z-index: 1; /* This will bring the paragraph to the foreground */
+    margin-top: 200px; /* This will create distance from the top of the page */
+}
 
 
     @keyframes fall-1 {
