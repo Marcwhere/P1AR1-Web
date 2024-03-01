@@ -151,7 +151,7 @@ const adjustLastMousePosition = position => {
 };
 
 window.onpointermove = e => {
-  const mousePosition = { x: e.clientX, y: e.clientY }
+  const mousePosition = { x: e.pageX, y: e.pageY }
   
   adjustLastMousePosition(mousePosition);
  
