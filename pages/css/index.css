@@ -10,6 +10,25 @@ body {
 }
 
 
+
+.header {
+    background-color: rgba(249, 249, 249, 0.4);
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+.content {
+    padding: 50px;
+    font-size: 24px;
+}
+
+
+
+
+
+
 .center {
     position: relative;
     top: 20%;
