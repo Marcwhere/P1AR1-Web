@@ -15,6 +15,8 @@ body {
     background-color: rgba(249, 249, 249, 0.4);
     padding: 20px;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
 }
 
 
@@ -22,6 +24,10 @@ body {
 .content {
     padding: 50px;
     font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: rgb(0, 0, 0) 0px 0px 50px;
+    color: #ffffff;
+
 }
 
 
@@ -83,7 +89,7 @@ body {
     padding: 2%;
     gap: 8%;
     text-shadow: rgb(255, 255, 255) 0px 0px 20px;
-    
+    margin-bottom: 150px
     
 }
 
@@ -94,7 +100,7 @@ body {
 p {
     position: relative; /* This will allow the z-index property to work */
     z-index: 1; /* This will bring the paragraph to the foreground */
-    margin-top: 200px; /* This will create distance from the top of the page */
+    margin-top: 100px; /* This will create distance from the top of the page */
 }
 
 
