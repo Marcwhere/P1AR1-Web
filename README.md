@@ -1,4 +1,4 @@
-# Project Title
+# Daysing Games
 
 This project is a school project, but it may also be usable for external users.
 
