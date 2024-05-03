@@ -6,9 +6,21 @@
 
 <style>
 canvas {
-    border:10px solid #d3d3d3;
-    background-color: #f1f1f1;
+    border:10px solid #2c1451;
+    background-color: #000000;
+    
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: rgb(245,224,24);
+    background: radial-gradient(circle, rgb(0, 0, 0) 38%, rgba(255,0,0,1) 100%);
+}
+
 </style>
 </head>
 <body onload="startGame()">
@@ -21,15 +33,15 @@ var myScore;
 function startGame() {
     myGamePiece = new component(30, 30, "red", 10, 120);
     myGamePiece.gravity = 0.05;
-    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+    myScore = new component("30px", "Consolas", "white", 20, 40, "text");
     myGameArea.start();
 }
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 480;
-        this.canvas.height = 270;
+        this.canvas.width = 980;
+        this.canvas.height = 570;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
@@ -91,11 +103,50 @@ function component(width, height, color, x, y, type) {
         return crash;
     }
 }
+function resetGame() {
+    // Assuming myGameArea.context is the 2D context of your canvas
+    myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
+    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGamePiece.gravity = 0.05; // Reset gravity
+    myGamePiece.speedY = 0; // Reset vertical speed
+    myObstacles = [];
+    myGameArea.frameNo = 0; // Reset frame number
+    // Assuming updateGameArea is being called in an interval or timeout, clear it
+    clearInterval(myGameArea.interval);
+    myGameArea.start();
+
+    // Define the webhook URL
+    var webhook_url = '10.10.135.11/webhook';
+
+    // Define the data you want to send
+    var data = {
+        key1: 'value1',
+        key2: 'value2'
+    };
+
+    // Use the API to send the data
+    fetch(webhook_url, {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
 
 function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
+            alert('Game Over!'); // Display a popup when the game ends
+            resetGame();
             return;
         } 
     }
@@ -131,13 +182,23 @@ function accelerate(n) {
     myGamePiece.gravity = n;
 }
 
+document.body.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' || event.key === ' ' || event.key === 'ArrowUp' || event.key === '+') {
+        accelerate(-0.2);
+    }
+});
+
+document.body.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter' || event.key === ' ' || event.key === 'ArrowUp' || event.key === '+') {
+        accelerate(0.05);
+    }
+});
+
 </script>
 <br>
-<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">ACCELERATE</button>
-<p>Use the ACCELERATE button to stay in the air</p>
-<p>How long can you stay alive?</p>
 
-public static List<int> score = new List<int>();
+
+
 
 </body>
 </html>
