@@ -24,7 +24,45 @@ body {
 </style>
 </head>
 <body onload="startGame()">
+
+
+
 <script>
+
+
+// script webhook test trigger
+function triggerURL() {
+            // Replace the URLs with your desired URLs
+            var url1 = "http://192.168.178.87/win&A=255";
+            var url2 = "http://192.168.178.87/win&A=0"; // Replace this with your second URL
+ 
+            // Create a new XMLHttpRequest object for the first URL
+            var xhr1 = new XMLHttpRequest();
+ 
+            // Open a GET request to the first URL
+            xhr1.open("GET", url1, true);
+ 
+            // Send the request for the first URL
+            xhr1.send();
+ 
+            // Wait for 2 seconds and then trigger the second URL
+            setTimeout(function() {
+                // Create a new XMLHttpRequest object for the second URL
+                var xhr2 = new XMLHttpRequest();
+ 
+                // Open a GET request to the second URL
+                xhr2.open("GET", url2, true);
+ 
+                // Send the request for the second URL
+                xhr2.send();
+            }, 200); // 2000 milliseconds = 2 seconds
+            console.error("Webhook triggered");
+        }
+
+
+
+
+
 
 var myGamePiece;
 var myObstacles = [];
@@ -115,6 +153,10 @@ function resetGame() {
     clearInterval(myGameArea.interval);
     myGameArea.start();
 
+    
+
+
+    /*
     // Define the webhook URL
     var webhook_url = '10.10.135.11/webhook';
 
@@ -138,13 +180,16 @@ function resetGame() {
     })
     .catch((error) => {
         console.error('Error:', error);
-    });
+    });  */
 }
+
+
 
 function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
+            triggerURL(); // Trigger the webhook
             alert('Game Over!'); // Display a popup when the game ends
             resetGame();
             return;
