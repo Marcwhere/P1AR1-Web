@@ -5,9 +5,35 @@
 body {
     background: rgb(0,36,41);
     background: linear-gradient(24deg, rgba(0,36,41,1) 0%, rgba(163,47,47,1) 35%, rgba(237,174,73,1) 100%);   
-    height: 100vh;
-    overflow: hidden;
+    height: 2000px;
+    
 }
+
+
+
+.header {
+    background-color: rgba(249, 249, 249, 0.4);
+    padding: 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+
+
+.content {
+    padding: 50px;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: rgb(0, 0, 0) 0px 0px 50px;
+    color: #ffffff;
+
+}
+
+
+
+
 
 
 .center {
@@ -64,11 +90,19 @@ body {
     padding: 2%;
     gap: 8%;
     text-shadow: rgb(255, 255, 255) 0px 0px 20px;
-    
+    margin-bottom: 150px
     
 }
 
-    
+body {
+    height: 2000px; /* This will make the page scrollable */
+}
+
+p {
+    position: relative; /* This will allow the z-index property to work */
+    z-index: 1; /* This will bring the paragraph to the foreground */
+    margin-top: 100px; /* This will create distance from the top of the page */
+}
 
 
     @keyframes fall-1 {
